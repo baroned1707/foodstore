@@ -1,7 +1,3 @@
-const checkAuth = () =>{
-    
-}
-
 let list_all = [
     {
         food_id :'food_1',
