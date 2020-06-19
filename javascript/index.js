@@ -120,7 +120,36 @@ let list_all = [
     },
 
 ];
+//Khang
+//-----------------------------------------------------------------------------------------------------------------------------
+let arrR = new Array;
 
+const addpage = (len) => {
+    let html = `<p>`;
+    let count;
+
+    if (len % 9 === 0) {
+        count = len/9;
+    } else {
+        count = (len/9);
+    }
+
+    for (let i = 0; i < count; i++) {
+        html = html + `<input type="button" value="${i+1}" id="page_${i+1}">`;
+    }
+
+    html = html + `</p>`;
+
+    $(document).ready(function ()  {
+        $("#page").append(html);
+    })
+        
+    
+    
+}
+
+
+//Khương
 //----------------------------------------------------------------------------------------------------------------------------
 //Check authen state
 $(document).ready(()=>{
@@ -143,10 +172,13 @@ $(document).ready(()=>{
     });
 })
 
+//----------------------------------------------------------------------------------------------------------------------------------------------------
 $(document).ready(()=>{    
     for(let food in list_all){
         // console.log(list_all[food].food_id);
-        if (food <= 8)
+        arrR.push(list_all[food]);
+        addpage(arrR.length);
+        if (food < 9)
         {
             let html = 
                `<div style="width:30%;height:30%; margin-left:2.5%; margin-top:2%">
@@ -159,23 +191,6 @@ $(document).ready(()=>{
     }  
 })
 
-// $(document).ready(() => {
-//     let html;
-// });
-// $(document).ready(()=>{
-//     let len = list_all.length;
-//     let html;
-//     if (len%9 !== 0){
-//         let count = (len/9) + 1;
-//     }
-//     else let count = len/9;
-
-//     for (let n = 0; n < count; n++) {
-//         html += `<input type="button" value="1" id="page_1">`
-//     }
-
-//     $("#page").append(html)
-// })
 
 $(document).ready(function () {
     $("#page_1").click(function () { 
