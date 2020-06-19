@@ -159,26 +159,23 @@ $(document).ready(()=>{
     }  
 })
 
-<<<<<<< HEAD
-$(document).ready(() => {
-    let html;
+// $(document).ready(() => {
+//     let html;
+// });
+// $(document).ready(()=>{
+//     let len = list_all.length;
+//     let html;
+//     if (len%9 !== 0){
+//         let count = (len/9) + 1;
+//     }
+//     else let count = len/9;
 
-=======
-$(document).ready(()=>{
-    let len = list_all.length;
-    let html;
-    if (len%9 !== 0){
-        let count = (len/9) + 1;
-    }
-    else let count = len/9;
+//     for (let n = 0; n < count; n++) {
+//         html += `<input type="button" value="1" id="page_1">`
+//     }
 
-    for (let n = 0; n < count; n++) {
-        html += `<input type="button" value="1" id="page_1">`
-    }
-
-    $("#page").append(html)
->>>>>>> ad135accc8868e1843517ea365bbb7b7c6edff8b
-})
+//     $("#page").append(html)
+// })
 
 $(document).ready(function () {
     $("#page_1").click(function () { 
