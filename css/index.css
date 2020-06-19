@@ -42,9 +42,16 @@ body{
     margin-top: 3%;
     text-decoration: none;
 }
+#state{
+    color: white;
+    font-size: large;
+    align-self: center;
+    margin-top: 3%;
+    text-decoration: none;
+}
 #logo{
     width: 15%;
-    height: 20%;
+    height: 140px;
     position: absolute;
     justify-self: center;
     margin-left: 42%;
