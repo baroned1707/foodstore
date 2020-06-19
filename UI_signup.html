@@ -6,28 +6,28 @@
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-        <title>Happy Food Store</title>
+        <script src="./javascript/SignUp.js"></script>
+        <title>Sign Up</title>
     </head>
     <body>
-      <script defer src="https://www.gstatic.com/firebasejs/7.15.2/firebase-app.js"></script>
-
-      <script defer src="https://www.gstatic.com/firebasejs/7.15.2/firebase-auth.js"></script>
-      <script defer src="https://www.gstatic.com/firebasejs/7.15.2/firebase-firestore.js"></script>
-      <script defer src="./init-firebase.js"></script>
+      <script src="https://www.gstatic.com/firebasejs/7.15.2/firebase-app.js"></script>
+      <script src="https://www.gstatic.com/firebasejs/7.15.2/firebase-auth.js"></script>
+      <script src="https://www.gstatic.com/firebasejs/7.15.2/firebase-firestore.js"></script>
+      <script src="./javascript/init-firebase.js"></script>
       <div id="main">
         <img src="./images/logo.jpg" id="logo"/>
         <div id="navigator">
             <div id="container1">
                 <div id="dot">
                 </div>
-                <a href="./index.html" id="home"><p>Home</p></a>
+                <a href="./index.html" id="home">Home</a>
                 <div id="dot">
                 </div>
             </div>
             <div id="container2">
                 <div id="dot">
                 </div>
-                <a href="./UI_sign.html" id="home"><p>Login</p></a>
+                <a href="./UI_sign.html" id="state">Login</a>
                 <div id="dot">
                 </div>
             </div>
@@ -93,7 +93,7 @@
 
                     <nav>
                         <p>Nếu đã có tài khoản hãy đăng nhập  <a href="#" style="color: red;">tại đây.</a></p>  
-                        <input type="submit" id="btnLogin" value="Đăng ký">
+                        <input type="submit" id="btnSignup" value="Đăng ký">
                     </nav>
                 </div>
             </div>

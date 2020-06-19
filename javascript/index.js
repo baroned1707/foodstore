@@ -138,7 +138,7 @@ $(document).ready(()=>{
         } else {
           // User is signed out.
           // ...
-          
+            console.log('Sign out')
         }
     });
 })
