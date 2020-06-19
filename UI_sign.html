@@ -6,14 +6,16 @@
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+        <script src="./javascript/UI_sign.js"></script>
         <title>Happy Food Store</title>
     </head>
     <body>
       <script defer src="https://www.gstatic.com/firebasejs/7.15.2/firebase-app.js"></script>
 
-      <script defer src="https://www.gstatic.com/firebasejs/7.15.2/firebase-auth.js"></script>
-      <script defer src="https://www.gstatic.com/firebasejs/7.15.2/firebase-firestore.js"></script>
-      <script defer src="./init-firebase.js"></script>
+      <script src="https://www.gstatic.com/firebasejs/7.15.2/firebase-auth.js"></script>
+      <script src="https://www.gstatic.com/firebasejs/7.15.2/firebase-firestore.js"></script>
+        <!--Config -->
+        <!--Navigator-->
       <div id="main">
         <img src="./images/logo.jpg" id="logo"/>
         <div id="navigator">
@@ -73,7 +75,7 @@
 
                     <nav>
                         <label for="txtPass" style="width: 20%;">Mật Khẩu</label>
-                        <input type="text" id="txtPass">
+                        <input type="password" id="txtPass">
                     </nav>
 
                     <nav>
