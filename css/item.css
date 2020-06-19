@@ -1,0 +1,20 @@
+#item{
+    width: 30%;
+    height: 30%;
+    margin-left: 1%;
+    margin-top: 1%;
+    background-color: white;
+}
+
+#name {
+    font-family: 'Times New Roman', Times, serif;
+    font-style: bold;
+    font-size: 200%;
+}
+
+#price {
+    font-family: 'Times New Roman', Times, serif;
+    font-style: bold;
+    font-size: 130%;
+    text-align: right;
+}
