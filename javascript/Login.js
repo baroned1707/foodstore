@@ -1,13 +1,11 @@
-var user = 'User';
-const Login = (email,pass)=>{
-    console.log(email+pass);
-    firebase.auth().signInWithEmailAndPassword(email, pass).catch(function(error) {
+const Login = async(email,pass)=>{
+    await firebase.auth().signInWithEmailAndPassword(email, pass).catch(function(error) {
         // Handle Errors here.
         var errorCode = error.code;
         var errorMessage = error.message;
         // [START_EXCLUDE] 
     });
-    
+    window.location.href = '../index.html';
 }
 
 $(document).ready(()=>{

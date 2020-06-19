@@ -1,3 +1,4 @@
+
 let list_all = [
     {
         food_id :'food_1',
@@ -152,6 +153,8 @@ const addpage = (len) => {
 //Khương
 //----------------------------------------------------------------------------------------------------------------------------
 //Check authen state
+
+
 $(document).ready(()=>{
     firebase.auth().onAuthStateChanged(function(user) {
         if (user) {
@@ -167,7 +170,7 @@ $(document).ready(()=>{
         } else {
           // User is signed out.
           // ...
-          
+            console.log('Sign out')
         }
     });
 })
@@ -383,6 +386,3 @@ $(document).ready(function () {
 });
 
 //--------------------------------------------------------------------------------------------------------------------------------------Test
-
-
-console.log(firebaseConfig);

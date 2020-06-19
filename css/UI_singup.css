@@ -90,4 +90,10 @@ body{
     border-radius: 0% 0% 5% 5%;
     
 }
+#state{
+    color: white;
+    font-size: large;
+    align-self: center;
+    text-decoration: none;
+}
 
