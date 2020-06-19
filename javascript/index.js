@@ -143,6 +143,21 @@ $(document).ready(()=>{
     }  
 })
 
+$(document).ready(()=>{
+    let len = list_all.length;
+    let html;
+    if (len%9 !== 0){
+        let count = (len/9) + 1;
+    }
+    else let count = len/9;
+
+    for (let n = 0; n < count; n++) {
+        html += `<input type="button" value="1" id="page_1">`
+    }
+
+    $("#page").append(html)
+})
+
 $(document).ready(function () {
     $("#page_1").click(function () { 
         $("#render").empty();
