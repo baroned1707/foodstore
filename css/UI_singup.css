@@ -81,14 +81,13 @@ body{
     margin-right: 20%;
     margin-top: 5%;
     background-color: bisque;
+    border-radius: 5%;
 }
 .panel_up {
     width: 90%;
     height: 90%;
-    
     background-color: rgb(81, 210, 233);
+    border-radius: 0% 0% 5% 5%;
     
 }
-.panel_login {
-    
-}
+
