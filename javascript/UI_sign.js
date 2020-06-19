@@ -1,18 +1,23 @@
-var user = '';
+var user = 'User';
 const Login = (email,pass)=>{
     console.log('Wating Login !');
-    firebase.auth().signInWithEmailAndPassword('ledikhang2609@gmail.com', '12345678').catch(function(error) {
+    firebase.auth().signInWithEmailAndPassword(email, pass).catch(function(error) {
         // Handle Errors here.
         var errorCode = error.code;
         var errorMessage = error.message;
         // [START_EXCLUDE]
+        window.location.href = '../index.html';
     });
-    user = firebase.auth().currentUser;
-    console.log(user)
 }
 
 $(document).ready(()=>{
-    console.log('Start Login !');
-    
-    console.log('Done');
+    $('#btnLogin').click(()=>{
+        var email = $('#txtUserName').val();
+        var pass = $('#txtPass').val();
+        if(email!=''&&pass!=''){
+            Login(email,pass);
+        } else {
+            alert('Email And Pass Spacing !');
+        }
+    });
 })

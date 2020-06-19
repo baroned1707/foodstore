@@ -122,6 +122,7 @@ let list_all = [
 ];
 
 //----------------------------------------------------------------------------------------------------------------------------
+//Check authen state
 $(document).ready(()=>{
     firebase.auth().onAuthStateChanged(function(user) {
         if (user) {
@@ -137,6 +138,7 @@ $(document).ready(()=>{
         } else {
           // User is signed out.
           // ...
+          
         }
     });
 })
