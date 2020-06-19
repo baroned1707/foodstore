@@ -143,6 +143,11 @@ $(document).ready(()=>{
     }  
 })
 
+$(document).ready(() => {
+    let html;
+
+})
+
 $(document).ready(function () {
     $("#page_1").click(function () { 
         $("#render").empty();
