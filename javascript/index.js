@@ -125,29 +125,296 @@ let list_all = [
 //-----------------------------------------------------------------------------------------------------------------------------
 let arrR = new Array;
 
-const addpage = (len) => {
+const addpage = (arr, len) => { //Lỗiiiiiii
+    console.log(arrR.length);
     let html = `<p>`;
-    let count;
-
-    if (len % 9 === 0) {
-        count = len/9;
-    } else {
-        count = (len/9);
-    }
+    let html2 = `<script>`;
+    let count = arrR.length/9;
 
     for (let i = 0; i < count; i++) {
         html = html + `<input type="button" value="${i+1}" id="page_${i+1}">`;
+        html2 = html2 + `clickPage(arrR,${i+1});`
     }
 
-    html = html + `</p>`;
-
+    let html_T = html + `</p>` + html2+ `</script>`;
     $(document).ready(function ()  {
-        $("#page").append(html);
+        $("#page").append(html_T);
     })
-        
-    
-    
+     
 }
+
+const render = (arr,food) => {
+    let html = `<div style="width:30%;height:30%; margin-left:2.5%; margin-top:2%">
+                    <img id = "${arr[food].food_id}" src="${arr[food].src_img}"  style="width: 100%; height:80%;">
+                    <p id = "name">${arr[food].name}</p>
+                    <p id = "price">${arr[food].price}</p>
+                </div>`;
+    $("#render").append(html);
+}
+
+const clickPage = (arr,n) => {
+    let  pageN = new String;
+    pageN = "#page_"+ n;
+        $(pageN).click(() => { 
+            $("#render").empty();
+            for (let f in arr) {
+                if (f >= 9*n-9 && f <= 9*n-1) {
+                    render(arr,f);
+                }
+            }
+        })
+
+}
+
+
+
+//----------------------------------------------------------------------------------------------------------------------------------------------------
+$(document).ready(()=>{    
+    for(let food in list_all){
+        if (food < 9)
+        {
+            render(list_all,food);
+        }
+    }
+    let html = `<p>`;
+    let html2 = `<script>`;
+    let count = list_all.length/9;
+
+    for (let i = 0; i < count; i++) {
+        html = html + `<input type="button" value="${i+1}" id="page_${i+1}">`;
+        html2 = html2 + `clickPage(list_all,${i+1});`
+    }
+
+    let html_T = html + `</p>` + html2+ `</script>`;
+    $(document).ready(function ()  {
+        $("#page").append(html_T);
+    })
+})
+
+$(document).ready(() => {
+    $("#all").click(() => {
+        let arrR = [];
+
+        $("#render").empty();
+        $("#page").empty();
+
+        for(let food in list_all){
+            arrR.push(list_all[food])
+        }
+        for (let food in arrR) {
+            if (food < 9)
+            {
+                render(arrR,food);
+            }
+        }
+       
+        let html = `<p>`;
+        let html2 = `<script>`;
+        let count = arrR.length/9;
+
+        for (let i = 0; i < count; i++) {
+            html = html + `<input type="button" value="${i+1}" id="page_${i+1}">`;
+            html2 = html2 + `clickPage(arrR,${i+1});`;
+        }
+    
+        let html_T = html + `</p>` + html2 + `</script>`;
+        $(document).ready(function ()  {
+            $("#page").append(html_T);
+        })
+    })
+    
+})
+
+
+$(document).ready(() => {
+    $("#rice").click(() => {
+        let arrR = [];
+
+        $("#render").empty();
+        $("#page").empty();
+
+        for(let food in list_all){
+            if (list_all[food].type === 'com') {
+                arrR.push(list_all[food]);
+            }
+        }
+        for (let food in arrR) {
+            if (food < 9)
+            {
+                render(arrR,food);
+            }
+        }
+        console.log(arrR.length);
+        let html = `<p>`;
+        let html2 = `<script>`;
+        let count = arrR.length/9;
+
+        for (let i = 0; i < count; i++) {
+            html = html + `<input type="button" value="${i+1}" id="page_${i+1}">`;
+            html2 = html2 + `clickPage(arrR,${i+1});`;
+        }
+    
+        let html_T = html + `</p>` + html2 + `</script>`;
+        $(document).ready(function ()  {
+            $("#page").append(html_T);
+        })
+    })
+})
+
+$(document).ready(() => {
+    $("#pho").click(() => {
+        let arrR = [];
+
+        $("#render").empty();
+        $("#page").empty();
+
+        for(let food in list_all){
+            if (list_all[food].type === 'pho') {
+                arrR.push(list_all[food]);
+            }
+        }
+        for (let food in arrR) {
+            if (food < 9)
+            {
+                render(arrR,food);
+            }
+        }
+        addpage(arrR, arrR.length);
+    })
+})
+
+$(document).ready(() => {
+    $("#noodle").click(() => {
+        let arrR = [];
+
+        $("#render").empty();
+        $("#page").empty();
+
+        for(let food in list_all){
+            if (list_all[food].type === 'bun') {
+                arrR.push(list_all[food]);
+            }
+        }
+        for (let food in arrR) {
+            if (food < 9)
+            {
+                render(arrR,food);
+            }
+        }
+        addpage(arrR, arrR.length);
+    })
+})
+
+$(document).ready(() => {
+    $("#scroll").click(() => {
+        let arrR = [];
+
+        $("#render").empty();
+        $("#page").empty();
+
+        for(let food in list_all){
+            if (list_all[food].type === 'cuon') {
+                arrR.push(list_all[food]);
+            }
+        }
+        for (let food in arrR) {
+            if (food < 9)
+            {
+                render(arrR,food);
+            }
+        }
+        addpage(arrR, arrR.length);
+    })
+})
+
+$(document).ready(() => {
+    $("#soup").click(() => {
+        let arrR = [];
+
+        $("#render").empty();
+        $("#page").empty();
+
+        for(let food in list_all){
+            if (list_all[food].type === 'canh') {
+                arrR.push(list_all[food]);
+            }
+        }
+        for (let food in arrR) {
+            if (food < 9)
+            {
+                render(arrR,food);
+            }
+        }
+        addpage(arrR, arrR.length);
+    })
+})
+
+$(document).ready(() => {
+    $("#vegetable").click(() => {
+        let arrR = [];
+
+        $("#render").empty();
+        $("#page").empty();
+
+        for(let food in list_all){
+            if (list_all[food].type === 'rau') {
+                arrR.push(list_all[food]);
+            }
+        }
+        for (let food in arrR) {
+            if (food < 9)
+            {
+                render(arrR,food);
+            }
+        }
+        addpage(arrR, arrR.length);
+    })
+})
+
+$(document).ready(() => {
+    $("#desserts").click(() => {
+        let arrR = [];
+
+        $("#render").empty();
+        $("#page").empty();
+
+        for(let food in list_all){
+            if (list_all[food].type === 'trangmieng') {
+                arrR.push(list_all[food]);
+            }
+        }
+        for (let food in arrR) {
+            if (food < 9)
+            {
+                render(arrR,food);
+            }
+        }
+        addpage(arrR, arrR.length);
+    })
+})
+
+$(document).ready(() => {
+    $("#drink").click(() => {
+        let arrR = [];
+
+        $("#render").empty();
+        $("#page").empty();
+
+        for(let food in list_all){
+            if (list_all[food].type === 'nuoc') {
+                arrR.push(list_all[food]);
+            }
+        }
+        for (let food in arrR) {
+            if (food < 9)
+            {
+                render(arrR,food);
+            }
+        }
+        addpage(arrR, arrR.length);
+    })
+})
+
 
 
 //Khương
@@ -174,215 +441,5 @@ $(document).ready(()=>{
         }
     });
 })
-
-//----------------------------------------------------------------------------------------------------------------------------------------------------
-$(document).ready(()=>{    
-    for(let food in list_all){
-        // console.log(list_all[food].food_id);
-        arrR.push(list_all[food]);
-        addpage(arrR.length);
-        if (food < 9)
-        {
-            let html = 
-               `<div style="width:30%;height:30%; margin-left:2.5%; margin-top:2%">
-                    <img id = "${list_all[food].food_id}" src="${list_all[food].src_img}"  style="width: 100%; height:80%;">
-                    <p id = "name">${list_all[food].name}</p>
-                    <p id = "price">${list_all[food].price}</p>
-                </div>`;
-            $("#render").append(html);
-        }
-    }  
-})
-
-
-$(document).ready(function () {
-    $("#page_1").click(function () { 
-        $("#render").empty();
-        for(let food in list_all){
-            // console.log(list_all[food].food_id);
-            if (food <= 8)
-            {
-                let html = 
-                   `<div style="width:30%;height:30%; margin-left:2.5%; margin-top:2%">
-                        <img id = "${list_all[food].food_id}" src="${list_all[food].src_img}"  style="width: 100%; height:80%;">
-                        <p id = "name">${list_all[food].name}</p>
-                        <p id = "price">${list_all[food].price}</p>
-                    </div>`;
-                $("#render").append(html);
-            }
-        }  
-    });
-});
-
-$(document).ready(function () {
-    $("#page_2").click(function () { 
-        $("#render").empty();
-        for(let food in list_all){
-            // console.log(list_all[food].food_id);
-            if (food > 8)
-            {
-                let html = 
-                   `<div style="width:30%;height:30%; margin-left:2.5%; margin-top:2%">
-                        <img id = "${list_all[food].food_id}" src="${list_all[food].src_img}"  style="width: 100%; height:80%;">
-                        <p id = "name">${list_all[food].name}</p>
-                        <p id = "price">${list_all[food].price}</p>
-                    </div>`;
-                $("#render").append(html);
-            }
-        }  
-    });
-});
-
-$(document).ready(function () {
-    $("#rice").click(function () { 
-        $("#render").empty();
-        for(let food in list_all){
-            // console.log(list_all[food].food_id);
-            if (list_all[food].type === 'com')
-            {
-                let html = 
-                   `<div style="width:30%;height:30%; margin-left:2.5%; margin-top:2%">
-                        <img id = "${list_all[food].food_id}" src="${list_all[food].src_img}"  style="width: 100%; height:80%;">
-                        <p id = "name">${list_all[food].name}</p>
-                        <p id = "price">${list_all[food].price}</p>
-                    </div>`;
-                $("#render").append(html);
-            }
-        }  
-    });
-});
-
-$(document).ready(function () {
-    $("#pho").click(function () { 
-        $("#render").empty();
-        for(let food in list_all){
-            // console.log(list_all[food].food_id);
-            if (list_all[food].type === 'pho')
-            {
-                let html = 
-                   `<div style="width:30%;height:30%; margin-left:2.5%; margin-top:2%">
-                        <img id = "${list_all[food].food_id}" src="${list_all[food].src_img}"  style="width: 100%; height:80%;">
-                        <p id = "name">${list_all[food].name}</p>
-                        <p id = "price">${list_all[food].price}</p>
-                    </div>`;
-                $("#render").append(html);
-            }
-        }  
-    });
-});
-
-$(document).ready(function () {
-    $("#noodle").click(function () { 
-        $("#render").empty();
-        for(let food in list_all){
-            // console.log(list_all[food].food_id);
-            if (list_all[food].type === 'bun')
-            {
-                let html = 
-                   `<div style="width:30%;height:30%; margin-left:2.5%; margin-top:2%">
-                        <img id = "${list_all[food].food_id}" src="${list_all[food].src_img}"  style="width: 100%; height:80%;">
-                        <p id = "name">${list_all[food].name}</p>
-                        <p id = "price">${list_all[food].price}</p>
-                    </div>`;
-                $("#render").append(html);
-            }
-        }  
-    });
-});
-
-$(document).ready(function () {
-    $("#scroll").click(function () { 
-        $("#render").empty();
-        for(let food in list_all){
-            // console.log(list_all[food].food_id);
-            if (list_all[food].type === 'cuon')
-            {
-                let html = 
-                   `<div style="width:30%;height:30%; margin-left:2.5%; margin-top:2%">
-                        <img id = "${list_all[food].food_id}" src="${list_all[food].src_img}"  style="width: 100%; height:80%;">
-                        <p id = "name">${list_all[food].name}</p>
-                        <p id = "price">${list_all[food].price}</p>
-                    </div>`;
-                $("#render").append(html);
-            }
-        }  
-    });
-});
-
-$(document).ready(function () {
-    $("#soup").click(function () { 
-        $("#render").empty();
-        for(let food in list_all){
-            // console.log(list_all[food].food_id);
-            if (list_all[food].type === 'canh')
-            {
-                let html = 
-                   `<div style="width:30%;height:30%; margin-left:2.5%; margin-top:2%">
-                        <img id = "${list_all[food].food_id}" src="${list_all[food].src_img}"  style="width: 100%; height:80%;">
-                        <p id = "name">${list_all[food].name}</p>
-                        <p id = "price">${list_all[food].price}</p>
-                    </div>`;
-                $("#render").append(html);
-            }
-        }  
-    });
-});
-
-$(document).ready(function () {
-    $("#vegetable").click(function () { 
-        $("#render").empty();
-        for(let food in list_all){
-            // console.log(list_all[food].food_id);
-            if (list_all[food].type === 'rau')
-            {
-                let html = 
-                   `<div style="width:30%;height:30%; margin-left:2.5%; margin-top:2%">
-                        <img id = "${list_all[food].food_id}" src="${list_all[food].src_img}"  style="width: 100%; height:80%;">
-                        <p id = "name">${list_all[food].name}</p>
-                        <p id = "price">${list_all[food].price}</p>
-                    </div>`;
-                $("#render").append(html);
-            }
-        }  
-    });
-});
-
-$(document).ready(function () {
-    $("#desserts").click(function () { 
-        $("#render").empty();
-        for(let food in list_all){
-            // console.log(list_all[food].food_id);
-            if (list_all[food].type === 'trangmieng')
-            {
-                let html = 
-                   `<div style="width:30%;height:30%; margin-left:2.5%; margin-top:2%">
-                        <img id = "${list_all[food].food_id}" src="${list_all[food].src_img}"  style="width: 100%; height:80%;">
-                        <p id = "name">${list_all[food].name}</p>
-                        <p id = "price">${list_all[food].price}</p>
-                    </div>`;
-                $("#render").append(html);
-            }
-        }  
-    });
-});
-
-$(document).ready(function () {
-    $("#drink").click(function () { 
-        $("#render").empty();
-        for(let food in list_all){
-            // console.log(list_all[food].food_id);
-            if (list_all[food].type === 'nuoc')
-            {
-                let html = 
-                   `<div style="width:30%;height:30%; margin-left:2.5%; margin-top:2%">
-                        <img id = "${list_all[food].food_id}" src="${list_all[food].src_img}"  style="width: 100%; height:80%;">
-                        <p id = "name">${list_all[food].name}</p>
-                        <p id = "price">${list_all[food].price}</p>
-                    </div>`;
-                $("#render").append(html);
-            }
-        }  
-    });
-});
 
 //--------------------------------------------------------------------------------------------------------------------------------------Test
