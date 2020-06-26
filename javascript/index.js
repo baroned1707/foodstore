@@ -124,6 +124,7 @@ let list_all = [
 //Khang
 //-----------------------------------------------------------------------------------------------------------------------------
 let arrR = new Array;
+console.log(arrR.length);
 
 const addpage = (arr, len) => { //Lỗiiiiiii
     console.log(arrR.length);
@@ -191,43 +192,41 @@ $(document).ready(()=>{
     })
 })
 
-$(document).ready(() => {
+// $(document).ready(() => {
     $("#all").click(() => {
-        let arrR = [];
-
-        $("#render").empty();
-        $("#page").empty();
-
-        for(let food in list_all){
-            arrR.push(list_all[food])
-        }
-        for (let food in arrR) {
-            if (food < 9)
-            {
-                render(arrR,food);
-            }
-        }
        
-        let html = `<p>`;
-        let html2 = `<script>`;
-        let count = arrR.length/9;
+         
+        $(document).ready(() => {
+            let arrR = [];
 
-        for (let i = 0; i < count; i++) {
-            html = html + `<input type="button" value="${i+1}" id="page_${i+1}">`;
-            html2 = html2 + `clickPage(arrR,${i+1});`;
-        }
-    
-        let html_T = html + `</p>` + html2 + `</script>`;
-        $(document).ready(function ()  {
-            $("#page").append(html_T);
+            for(let food in list_all){    
+              arrR.push(list_all[food]);
+            }
+               
+            $("#render").empty();
+             $("#page").empty();
+
+              for (let food in arrR) {
+                if (food < 9)
+                {
+                    render(arrR,food);
+                }
+             }
+             
+             addpage(arrR,arrR.length);
+             
         })
-    })
+
+        console.log(arrR.length);
+        
+        })
     
-})
+// })
 
 
 $(document).ready(() => {
     $("#rice").click(() => {
+        
         let arrR = [];
 
         $("#render").empty();
