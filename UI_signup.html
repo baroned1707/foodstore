@@ -9,10 +9,11 @@
         <title>Sign Up</title>
     </head>
     <body>
-      <script defer src="https://www.gstatic.com/firebasejs/7.15.2/firebase-app.js"></script>
-
-      <script defer src="https://www.gstatic.com/firebasejs/7.15.2/firebase-auth.js"></script>
-      <script defer src="https://www.gstatic.com/firebasejs/7.15.2/firebase-firestore.js"></script>
+      <script src="https://www.gstatic.com/firebasejs/7.15.2/firebase-app.js"></script>
+      <script src="https://www.gstatic.com/firebasejs/7.15.2/firebase-auth.js"></script>
+      <script src="https://www.gstatic.com/firebasejs/7.15.2/firebase-firestore.js"></script>
+      <script src="./javascript/init-firebase.js"></script>
+      <script src="./javascript/SignUp.js"></script>
       <div id="main">
         <img src="./images/logo.jpg" id="logo"/>
         <div id="navigator">
@@ -82,7 +83,7 @@
 
                     <nav style="padding-top: 1%;">
                         <label for="txtPass" style="width: 20%;">Mật Khẩu</label>
-                        <input type="text" id="txtPass">
+                        <input type="password" id="txtPass">
                     </nav>
 
                     <nav style="padding-top: 3%;">

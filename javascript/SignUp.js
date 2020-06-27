@@ -1,26 +1,39 @@
-//Check authen state
-$(document).ready(()=>{
-    firebase.auth().onAuthStateChanged(function(user) {
-        if (user) {
-            // User is signed in.
-            //   var displayName = user.displayName;
-            //   var email = user.email;
-            //   var emailVerified = user.emailVerified;
-            //   var photoURL = user.photoURL;
-            //   var isAnonymous = user.isAnonymous;
-            //   var uid = user.uid;
-            //   var providerData = user.providerData;
-            $('#state').text('Profile');
-        } else {
-          // User is signed out.
-          // ...
-            
-        }
-    });
-})
+
 
 $(document).ready(()=>{
     $('#btnSignup').click(()=>{
-        alert('Dang ky');
+        var name = $('#txtName').val();
+        var sdt = $('#telPhoneNumber').val();
+        var mail = $('#txtMail').val();
+        var pass = $('#txtPass').val();
+        var address = $('#txtAddress').val();
+        console.log(name);
+        console.log(sdt);
+        console.log(mail);
+        console.log(pass);
+        console.log(address);
+        //Dieu kien
+
+        //Login va khoi tao database cho tai khoang
+        firebase.auth().createUserWithEmailAndPassword(mail, pass)
+        .then(async()=>{
+            const user = await firebase.auth().currentUser;
+            var db = await firebase.firestore().collection("Users").doc(`${user.uid}`);
+            await db.set({
+                name:name,
+                address:address,
+                premisson:'client',
+                historybill:[],
+            }).catch(error=>console.log(error.message));
+            window.location.href = '../index.html';
+        })
+        .catch(function(error) {
+            // Handle Errors here.
+            var errorCode = error.code;
+            var errorMessage = error.message;
+            // ...
+            console.log(error.message);
+        })
+        
     })
 })
